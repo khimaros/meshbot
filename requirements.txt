@@ -1,0 +1,4 @@
+meshtastic
+openai
+reverse-geocode
+tomli

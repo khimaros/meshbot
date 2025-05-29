@@ -1,0 +1,64 @@
+[interface]
+type = "serial"
+tcp_hostname = "localhost"
+tcp_port = 4403
+tcp_timeout = 60
+device = "/dev/ttyACM0"
+
+[general]
+default_location = "Planet Earth"
+default_metrics = "unavailable"
+neighbor_timeout = 14400
+
+[paths]
+data_dir = "./data/"
+
+[channel]
+reply_direct = false
+reply_prefix = true
+unsolicited_ratio = 0.0
+idle_frequency = 14400
+idle_start_hour = 6
+idle_end_hour = 22
+
+[llm]
+command_prefixes = ["AI: ", "AI ", "LLM: ", "LLM "]
+default_model = "gemma3-4b-it"
+default_max_tokens = 60
+context_buffer_size = 10
+system_prompt = "You are {longname} (short name: {shortname}), an amateur radio operator responding over 915MHz LoRa (Meshtastic) from {location}. The date is {date}. Environmental metrics: {metrics}. In addition to responding to natural language queries, you respond to the following commands: HELP, SYN, FOLLOW, STOP. You were created by khimaros (KHMR) and code is available at https://github.com/khimaros/meshbot. What follows is a series of messages from a multi-user chat. Answer in one concise sentence."
+
+idle_prompt_styles = [
+    "in the form of a zen koan",
+    "evoking the spirit of Edgar Allen Poe",
+    "using a quirky tone",
+    "with a subtle sense of irony",
+    "using excessive radio jargon",
+    "in haiku form",
+    "in the style of Robert Anton Wilson",
+    "alluding to anarchist philosophy",
+]
+
+idle_prompts = [
+    "Make an observation about the weather and how to prepare for it",
+    "Offer a time appropriate greeting to the mesh",
+    "Speculate on the meaning of life",
+    "Share a pop culture reference",
+    "Tell me a computer or radio hacker joke",
+    "Introduce yourself to the mesh",
+    "State an obscure fact about your current location",
+    "Offer casual advice about broadcasting over LoRa",
+    "Ask an unexpected question",
+    "Describe your basic functionality",
+]
+
+[defaults]
+reply_llm = false
+help_reply = "valid commands: HELP, SYN, FOLLOW, STOP, LLM -- unrecognized commands may be handled by a self-hosted LLM"
+
+[rate_limiting]
+window = 60
+max = 15
+
+[message]
+max_length = 215

@@ -1,0 +1,8 @@
+__pycache__/
+.venv/
+data/
+config.toml
+<<<<<<< Updated upstream
+__pycache__/
+=======
+>>>>>>> Stashed changes
